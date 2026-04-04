@@ -1,560 +1,1165 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="UTF-8">
-  <title>CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-   <style>
-   * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Билгүүний Танин Мэдэхүйн Сайт</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
 
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background: #f0ede8;
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-    .page {
-      width: 794px;
-      min-height: 1123px;
-      background: #ffffff;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      display: flex;
-      flex-direction: column;
-    }
+:root {
+  --navy:  #080c28;
+  --blue:  #2563eb;
+  --cyan:  #06b6d4;
+  --gold:  #f59e0b;
+  --light: #e0f2fe;
+  --ok:    #10b981;
+  --no:    #ef4444;
+}
 
-    /* ── TOP HEADER ───────────────────────── */
-    .header {
-      background: #1a2744;
-      padding: 36px 48px 28px;
-      position: relative;
-      overflow: hidden;
-    }
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: var(--navy);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    /* Монгол алхан угалз — header баруун тал */
-    .header-ornament {
-      position: absolute;
-      right: 0; top: 0;
-      width: 160px; height: 100%;
-      opacity: 0.08;
-    }
+/* ── HEADER ── */
+header {
+  position: relative;
+  background: linear-gradient(135deg,#020818 0%,#0d1b5e 45%,#1e3a8a 75%,#0b1e6a 100%);
+  padding: 4.5rem 1.5rem 3rem;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 3px solid var(--cyan);
+  box-shadow: 0 6px 50px rgba(6,182,212,.45);
+}
 
-    .header-name {
-      font-family: 'Source Serif 4', serif;
-      font-size: 34px;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
+header::before, header::after {
+  content: '✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧ ⋆ ✦ ✧';
+  position: absolute;
+  font-size: .7rem;
+  letter-spacing: 14px;
+  white-space: nowrap;
+  width: 200%;
+}
+header::before { color:rgba(255,255,255,.16); top:12px; left:0; animation:scroll1 22s linear infinite; }
+header::after  { color:rgba(6,182,212,.14);   top:38px; left:-50%; letter-spacing:22px; animation:scroll1 30s linear infinite reverse; }
+@keyframes scroll1 { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    .header-role {
-      font-size: 13px;
-      font-weight: 300;
-      color: #a8b8d8;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+.h-deco { position:absolute; font-size:2.2rem; pointer-events:none; user-select:none; animation:flt 4s ease-in-out infinite; }
+.h-deco.rkt { top:16px; right:5%; animation-duration:3.2s; }
+.h-deco.pln { top:10px; left:4%; animation-duration:4.8s; animation-direction:reverse; }
+.h-deco.st1 { bottom:16px; right:14%; font-size:1.4rem; animation-duration:2.8s; }
+.h-deco.st2 { bottom:20px; left:12%; font-size:1.2rem; animation-duration:3.6s; animation-direction:reverse; }
+@keyframes flt { 0%,100%{transform:translateY(0) rotate(-4deg)} 50%{transform:translateY(-14px) rotate(4deg)} }
 
-    .header-contacts {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
+.h-badge {
+  display:inline-block;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  color:var(--navy);
+  font-size:.7rem; font-weight:800; letter-spacing:3px; text-transform:uppercase;
+  padding:5px 20px; border-radius:50px; margin-bottom:1.2rem;
+}
 
-    .contact-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
-      color: #c8d8f0;
-      font-weight: 300;
-    }
+h1 {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(2rem,6vw,3.8rem);
+  font-weight:900; line-height:1.12; letter-spacing:3px;
+  background:linear-gradient(90deg,#67e8f9,#fff,#fbbf24,#fff,#a5f3fc,#fbbf24,#67e8f9);
+  background-size:350% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation:shimmer 5s linear infinite;
+  margin-bottom:.5rem; position:relative; z-index:1;
+}
+@keyframes shimmer { 0%{background-position:0% center} 100%{background-position:350% center} }
 
-    .contact-pill svg {
-      width: 13px; height: 13px;
-      fill: #7090c0;
-      flex-shrink: 0;
-    }
+.h-sub { color:var(--cyan); font-size:1rem; letter-spacing:2px; opacity:.88; position:relative; z-index:1; }
 
-    /* Монгол угалзан зурвас — header доор */
-    .mn-stripe {
-      height: 6px;
-      background: repeating-linear-gradient(
-        90deg,
-        #b5832a 0px,  #b5832a 10px,
-        #1a2744 10px, #1a2744 14px,
-        #d4a84b 14px, #d4a84b 20px,
-        #1a2744 20px, #1a2744 24px,
-        #8b1a1a 24px, #8b1a1a 34px,
-        #1a2744 34px, #1a2744 38px,
-        #d4a84b 38px, #d4a84b 44px,
-        #1a2744 44px, #1a2744 48px,
-        #b5832a 48px, #b5832a 58px,
-        #1a2744 58px, #1a2744 62px
-      );
-      background-size: 62px 6px;
-    }
+/* ── RADIO INPUTS (hidden engine) ── */
+input[type="radio"] { display:none; }
 
-    /* ── BODY ─────────────────────────────── */
-    .body {
-      display: flex;
-      flex: 1;
-    }
+/* ── NAV TABS ── */
+nav {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:.6rem;
+  padding:1.8rem 1rem 0;
+}
 
-    /* ── LEFT SIDEBAR ─────────────────────── */
-    .sidebar {
-      width: 230px;
-      min-width: 230px;
-      background: #f7f6f3;
-      border-right: 1px solid #e8e4de;
-      padding: 28px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+.tab-lbl {
+  display:flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(6,182,212,.28);
+  border-radius:50px;
+  padding:.45rem 1.1rem;
+  font-family:'Exo 2',sans-serif; font-size:.85rem; font-weight:600; color:var(--light);
+  cursor:pointer; transition:all .22s; user-select:none;
+}
+.tab-lbl:hover { border-color:var(--cyan); background:rgba(6,182,212,.1); transform:translateY(-2px); }
 
+#t-bio:checked    ~ nav .lbl-bio,
+#t-math:checked   ~ nav .lbl-math,
+#t-geo:checked    ~ nav .lbl-geo,
+#t-hist:checked   ~ nav .lbl-hist,
+#t-space:checked  ~ nav .lbl-space,
+#t-ani:checked    ~ nav .lbl-ani,
+#t-culture:checked ~ nav .lbl-culture,
+#t-mongol:checked  ~ nav .lbl-mongol {
+  border-color:var(--gold); background:rgba(245,158,11,.15); color:var(--gold);
+  box-shadow:0 0 18px rgba(245,158,11,.3);
+}
 
-    .s-label {
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #1a2744;
-      font-weight: 600;
-      margin-bottom: 10px;
-      padding-bottom: 6px;
-      border-bottom: 1.5px solid #1a2744;
-    }
+/* ── MAIN ── */
+main { max-width:860px; margin:0 auto; padding:2rem 1.2rem 5rem; }
 
-    .s-item {
-      font-size: 11.5px;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 5px;
-      font-weight: 300;
-    }
+.panel { display:none; }
 
-    .s-item strong {
-      color: #222;
-      font-weight: 600;
-      display: block;
-      font-size: 11px;
-    }
+#t-bio:checked     ~ main .p-bio,
+#t-math:checked    ~ main .p-math,
+#t-geo:checked     ~ main .p-geo,
+#t-hist:checked    ~ main .p-hist,
+#t-space:checked   ~ main .p-space,
+#t-ani:checked     ~ main .p-ani,
+#t-culture:checked ~ main .p-culture,
+#t-mongol:checked  ~ main .p-mongol { display:block; }
 
-    /* Skill bars */
-    .skill-row {
-      margin-bottom: 9px;
-    }
+.p-welcome { display:block; }
+#t-bio:checked     ~ main .p-welcome,
+#t-math:checked    ~ main .p-welcome,
+#t-geo:checked     ~ main .p-welcome,
+#t-hist:checked    ~ main .p-welcome,
+#t-space:checked   ~ main .p-welcome,
+#t-ani:checked     ~ main .p-welcome,
+#t-culture:checked ~ main .p-welcome,
+#t-mongol:checked  ~ main .p-welcome { display:none; }
 
-    .skill-top {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 3px;
-    }
+.welcome-card {
+  text-align:center; padding:3.5rem 1rem;
+  background:linear-gradient(160deg,rgba(13,27,94,.9),rgba(10,14,46,.95));
+  border:1.5px solid rgba(6,182,212,.35); border-radius:22px;
+  box-shadow:0 8px 40px rgba(0,0,0,.5);
+}
+.w-icon { font-size:4rem; margin-bottom:1rem; display:block; animation:flt 3s ease-in-out infinite; }
+.w-title { font-family:'Orbitron',sans-serif; font-size:1.5rem; color:var(--cyan); margin-bottom:.6rem; }
+.w-txt { color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.65; }
 
-    .skill-name {
-      font-size: 11px;
-      color: #333;
-      font-weight: 400;
-    }
+.sec-head { display:flex; align-items:center; gap:12px; margin-bottom:1.6rem; padding-bottom:.8rem; border-bottom:1px solid rgba(6,182,212,.2); }
+.sec-ico { font-size:1.8rem; }
+.sec-title {
+  font-family:'Orbitron',sans-serif; font-size:1.1rem; font-weight:700;
+  background:linear-gradient(90deg,var(--cyan),#93c5fd);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
 
-    .skill-pct {
-      font-size: 10px;
-      color: #888;
-    }
+/* ── QUIZ CARDS ── */
+.quiz-list { display:flex; flex-direction:column; gap:1.4rem; }
 
-    .skill-track {
-      height: 3px;
-      background: #ddd;
-      border-radius: 2px;
-    }
+.qcard {
+  background:linear-gradient(160deg,rgba(13,27,94,.92),rgba(10,14,46,.96));
+  border:1.5px solid rgba(6,182,212,.3); border-radius:18px;
+  padding:1.4rem 1.5rem;
+  box-shadow:0 4px 24px rgba(0,0,0,.4);
+  transition:border-color .2s,box-shadow .2s;
+}
+.qcard:hover { border-color:rgba(6,182,212,.55); box-shadow:0 6px 32px rgba(6,182,212,.15); }
 
-    .skill-fill {
-      height: 100%;
-      background: #1a2744;
-      border-radius: 2px;
-    }
+.q-badge {
+  display:inline-block;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  color:var(--navy);
+  font-size:.68rem; font-weight:800; letter-spacing:2px;
+  padding:3px 12px; border-radius:30px; margin-bottom:.7rem;
+}
 
-    /* Language */
-    .lang-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 7px;
-    }
+.q-txt { font-size:1.05rem; font-weight:600; line-height:1.55; color:#fff; margin-bottom:1.1rem; }
 
-    .lang-name {
-      font-size: 11.5px;
-      color: #333;
-    }
+.opts { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+@media(max-width:520px){ .opts{ grid-template-columns:1fr; } }
 
-    .lang-dots {
-      display: flex;
-      gap: 3px;
-    }
+.opt-r { display:none; }
 
-    .dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #d0d0d0;
-    }
+.opt-l {
+  display:block;
+  background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(6,182,212,.22);
+  border-radius:12px;
+  padding:.65rem 1rem;
+  font-size:.88rem; font-weight:500; color:var(--light);
+  cursor:pointer; transition:all .18s; line-height:1.45;
+}
+.opt-l:hover { background:rgba(6,182,212,.1); border-color:var(--cyan); transform:translateX(4px); }
+.opt-l::before {
+  content:'';
+  display:inline-block; width:14px; height:14px;
+  border:2px solid rgba(6,182,212,.4); border-radius:50%;
+  margin-right:8px; vertical-align:middle; transition:all .18s;
+}
 
-    .dot.on { background: #1a2744; }
+.opt-r:checked + .opt-l { border-color:var(--blue); background:rgba(37,99,235,.18); }
+.opt-r:checked + .opt-l::before { background:var(--blue); border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,.25); }
 
-    /* Монгол жижиг угалз чимэг — sidebar доод хэсэгт */
-    .sidebar-ornament {
-      margin-top: auto;
-      padding-top: 16px;
-    }
+.opt-r.ok:checked + .opt-l { border-color:var(--ok); background:rgba(16,185,129,.18); color:#a7f3d0; }
+.opt-r.ok:checked + .opt-l::before { background:var(--ok); border-color:var(--ok); box-shadow:0 0 0 3px rgba(16,185,129,.3); }
 
-    /* ── MAIN CONTENT ─────────────────────── */
-    .main {
-      flex: 1;
-      padding: 28px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
+.opt-r.no:checked + .opt-l { border-color:var(--no); background:rgba(239,68,68,.16); color:#fca5a5; }
+.opt-r.no:checked + .opt-l::before { background:var(--no); border-color:var(--no); }
 
-    .m-label {
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #8b1a1a;
-      font-weight: 600;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #e0d8d0;
-    }
+.opt-l.iscorrect::after { content:' ★'; color:var(--ok); font-size:.8rem; opacity:0; transition:opacity .3s; }
+.opt-r:checked ~ .opts .opt-l.iscorrect::after { opacity:1; }
 
-    /* Timeline entry */
-    .entry {
-      display: grid;
-      grid-template-columns: 88px 1fr;
-      gap: 0 16px;
-      margin-bottom: 16px;
-    }
+.exp {
+  display:none; margin-top:1rem;
+  background:rgba(6,182,212,.07);
+  border-left:3px solid var(--cyan); border-radius:0 10px 10px 0;
+  padding:.7rem 1rem; font-size:.86rem; color:var(--light); line-height:1.6;
+}
+.opt-r:checked ~ .exp { display:block; }
 
-    .entry:last-child { margin-bottom: 0; }
+/* ── FOOTER ── */
+footer { text-align:center; padding:1.8rem; color:rgba(255,255,255,.2); font-size:.78rem; border-top:1px solid rgba(6,182,212,.1); letter-spacing:1px; }
 
-    .entry-date {
-      font-size: 10.5px;
-      color: #999;
-      padding-top: 1px;
-      text-align: right;
-      line-height: 1.5;
-    }
-
-    .entry-body {
-      padding-left: 14px;
-      border-left: 2px solid #e0d8d0;
-      position: relative;
-    }
-
-    .entry-body::before {
-      content: '';
-      position: absolute;
-      left: -5px; top: 5px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #1a2744;
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 0 1px #1a2744;
-    }
-
-    .entry-title {
-      font-family: 'Source Serif 4', serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 2px;
-    }
-
-    .entry-sub {
-      font-size: 11px;
-      color: #8b1a1a;
-      font-weight: 600;
-      margin-bottom: 4px;
-      letter-spacing: 0.2px;
-    }
-
-    .entry-desc {
-      font-size: 11.5px;
-      color: #555;
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* Summary */
-    .summary {
-      font-size: 12px;
-      color: #444;
-      line-height: 1.75;
-      font-weight: 300;
-      padding: 12px 16px;
-      background: #f7f6f3;
-      border-left: 3px solid #1a2744;
-    }
-
-    /* Tags */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      font-size: 10.5px;
-      color: #1a2744;
-      border: 1px solid #b8c8e0;
-      padding: 3px 10px;
-      border-radius: 2px;
-      font-weight: 400;
-      background: #f0f4fa;
-    }
-
-    /* Achievement */
-    .ach {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 9px;
-      align-items: flex-start;
-    }
-
-    .ach-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #b5832a;
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
-
-    .ach-text {
-      font-size: 11.5px;
-      color: #444;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    .ach-text b {
-      color: #222;
-      font-weight: 600;
-    }
-
-    /* ── FOOTER ───────────────────────────── */
-    .footer-stripe {
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        #1a2744 0px,  #1a2744 10px,
-        #b5832a 10px, #b5832a 16px,
-        #1a2744 16px, #1a2744 26px,
-        #8b1a1a 26px, #8b1a1a 32px,
-        #1a2744 32px, #1a2744 42px,
-        #b5832a 42px, #b5832a 48px,
-        #1a2744 48px, #1a2744 58px
-      );
-      background-size: 58px 4px;
-    }
-    .tag:hover{
-        transition-duration: 1s;
-        font-size: 10.5px;
-        background-color: #1a2744;
-        border: 2px solid #b8c8e0;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 2px;
-        font-weight: 400;
-    }
-  </style>
+</style>
 </head>
 <body>
-<div class="page">
 
-  <!-- HEADER -->
-  <div class="header">
-    <!-- Монгол алхан угалз SVG — баруун тал -->
-    <div class="header-name">Хоролжав Номин-Эрдэнэ</div>
-    <div class="header-role">Оюутан</div>
+<input type="radio" name="tab" id="t-bio">
+<input type="radio" name="tab" id="t-math">
+<input type="radio" name="tab" id="t-geo">
+<input type="radio" name="tab" id="t-hist">
+<input type="radio" name="tab" id="t-space">
+<input type="radio" name="tab" id="t-ani">
+<input type="radio" name="tab" id="t-culture">
+<input type="radio" name="tab" id="t-mongol">
 
-    <div class="header-contacts">
-      <div class="contact-pill">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        24b1num0706@stud.num.edu.mn, horoljavnominerdene@gmail.com
-      </div>
-      <div class="contact-pill">
-        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
-        +976 9956-2562
-      </div>
-      <div class="contact-pill">
-        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-        github.com/naomiz
-      </div>
-      <div class="contact-pill">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        Улаанбаатар, Монгол
-      </div>
+<header>
+  <span class="h-deco pln">🪐</span>
+  <span class="h-deco rkt">🚀</span>
+  <span class="h-deco st1">⭐</span>
+  <span class="h-deco st2">✨</span>
+  <div class="h-badge">Танин Мэдэхүй · 2026.04.04</div>
+  <h1>Билгүүний<br>Танин Мэдэхүйн Сайт</h1>
+  <p class="h-sub">⚡ Мэдлэгийн аялал эхэлж байна! ⚡</p>
+</header>
+
+<nav>
+  <label class="tab-lbl lbl-bio"     for="t-bio">🔬 Байгалийн ухаан</label>
+  <label class="tab-lbl lbl-math"    for="t-math">🔢 Математик</label>
+  <label class="tab-lbl lbl-geo"     for="t-geo">🌍 Газар зүй</label>
+  <label class="tab-lbl lbl-hist"    for="t-hist">⚔️ Түүх</label>
+  <label class="tab-lbl lbl-space"   for="t-space">🌌 Сансар</label>
+  <label class="tab-lbl lbl-ani"     for="t-ani">🐾 Амьтад</label>
+  <label class="tab-lbl lbl-culture" for="t-culture">🏠 Монгол ёс заншил</label>
+  <label class="tab-lbl lbl-mongol"  for="t-mongol">📖 Монгол мэдлэг</label>
+</nav>
+
+<main>
+
+  <!-- WELCOME -->
+  <div class="panel p-welcome">
+    <div class="welcome-card">
+      <span class="w-icon">🌟</span>
+      <p class="w-title">Сайн уу, Билгүүн!</p>
+      <p class="w-txt">Ухаанаа шалгах цаг боллоо.<br>Дээрх ангилалаас сэдвээ сонгоно уу!<br><br>Хариулт дарахад зөв эсэх нь шууд харагдана ✦</p>
     </div>
   </div>
 
-  <div class="body">
+  <!-- 🔬 БАЙГАЛИЙН УХААН -->
+  <div class="panel p-bio">
+    <div class="sec-head"><span class="sec-ico">🔬</span><span class="sec-title">Байгалийн ухаан</span></div>
+    <div class="quiz-list">
 
-    <div class="sidebar">
-
-      <!-- Боловсрол -->
-      <div class="s-block">
-        <div class="s-label">Боловсрол</div>
-        <div class="s-item">
-          <strong>МУИС</strong>
-          Програм хангамж бакалавр
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Ургамал нарны гэрлийг ашиглан хоолоо яаж хийдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio1" id="bio1a"><label class="opt-l" for="bio1a">А) Амьсгалын замаар</label>
+          <input class="opt-r ok" type="radio" name="bio1" id="bio1b"><label class="opt-l iscorrect" for="bio1b">Б) Фотосинтезийн замаар</label>
+          <input class="opt-r no" type="radio" name="bio1" id="bio1c"><label class="opt-l" for="bio1c">В) Хөрсний уснаас шингээж</label>
+          <input class="opt-r no" type="radio" name="bio1" id="bio1d"><label class="opt-l" for="bio1d">Г) Агаарын азотоос</label>
         </div>
-        <div class="s-item" style="color:#999; font-size:10.5px;">2024 — өнөөг хүртэл</div>
-        <div style="height:10px;"></div>
-        <div class="s-item">
-          <strong>СБ 1-р Сургууль</strong>
-          Ерөнхий боловсрол
-        </div>
-        <div class="s-item" style="color:#999; font-size:10.5px;">2012 — 2024</div>
+        <div class="exp">💡 <strong>Фотосинтез</strong> — ургамал нарны гэрэл, ус, нүүрстөрөгчийн давхар ислийг ашиглан глюкоз буюу хоол үйлдвэрлэх үйл явц юм.</div>
       </div>
 
-      <!-- Техникийн чадвар -->
-      <div class="s-block">
-        <div class="s-label">Техникийн чадвар</div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">HTML5 / CSS3</span><span class="skill-pct">95%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:95%"></div></div>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Хүний биед хичнээн яс байдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio2" id="bio2a"><label class="opt-l" for="bio2a">А) 200</label>
+          <input class="opt-r ok" type="radio" name="bio2" id="bio2b"><label class="opt-l iscorrect" for="bio2b">Б) 206</label>
+          <input class="opt-r no" type="radio" name="bio2" id="bio2c"><label class="opt-l" for="bio2c">В) 215</label>
+          <input class="opt-r no" type="radio" name="bio2" id="bio2d"><label class="opt-l" for="bio2d">Г) 180</label>
         </div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">78%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:78%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">Responsive Design</span><span class="skill-pct">85%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">Bootstrap</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span class="skill-name">Figma</span><span class="skill-pct">65%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:65%"></div></div>
-        </div>
+        <div class="exp">💡 Насанд хүрсэн хүний биед нийт <strong>206 яс</strong> байдаг. Нялх хүүхдэд 270 орчим яс байдаг боловч өсөхийн хэрээр нэгддэг.</div>
       </div>
 
-      <!-- Хэл -->
-      <div class="s-block">
-        <div class="s-label">Хэлний мэдлэг</div>
-        <div class="lang-row">
-          <span class="lang-name">Монгол</span>
-          <div class="lang-dots">
-            <div class="dot on"></div><div class="dot on"></div>
-            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
-          </div>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Цус ямар эрхтэн дотор үйлдвэрлэгддэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio3" id="bio3a"><label class="opt-l" for="bio3a">А) Уушги</label>
+          <input class="opt-r no" type="radio" name="bio3" id="bio3b"><label class="opt-l" for="bio3b">Б) Зүрх</label>
+          <input class="opt-r ok" type="radio" name="bio3" id="bio3c"><label class="opt-l iscorrect" for="bio3c">В) Ясны чөмөг</label>
+          <input class="opt-r no" type="radio" name="bio3" id="bio3d"><label class="opt-l" for="bio3d">Г) Элэг</label>
         </div>
-        <div class="lang-row">
-          <span class="lang-name">Англи</span>
-          <div class="lang-dots">
-            <div class="dot on"></div><div class="dot on"></div>
-            <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
-          </div>
-        </div>
+        <div class="exp">💡 Цусны улаан эс болон бусад цусны эсүүд <strong>ясны чөмөгт</strong> үйлдвэрлэгддэг. Элэг хуучин эсийг задалдаг.</div>
       </div>
 
-
-    </div>
-
-    <!-- MAIN -->
-    <div class="main">
-
-      <!-- Товч танилцуулга -->
-      <div class="m-block">
-        <div class="m-label">Товч танилцуулга</div>
-        <div class="summary">
-          МУИС-д Компьютерийн шинжлэх ухааны чиглэлээр суралцдаг оюутан. HTML, CSS, JavaScript болон responsive дизайны суурь мэдлэгтэй. Веб технологийн хөгжлийг идэвхтэй дагаж, дадлагажиж байна.
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Агаарт хамгийн их байдаг хий аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio4" id="bio4a"><label class="opt-l" for="bio4a">А) Хүчилтөрөгч</label>
+          <input class="opt-r ok" type="radio" name="bio4" id="bio4b"><label class="opt-l iscorrect" for="bio4b">Б) Азот</label>
+          <input class="opt-r no" type="radio" name="bio4" id="bio4c"><label class="opt-l" for="bio4c">В) Нүүрстөрөгчийн давхар исэл</label>
+          <input class="opt-r no" type="radio" name="bio4" id="bio4d"><label class="opt-l" for="bio4d">Г) Устөрөгч</label>
         </div>
+        <div class="exp">💡 Агаарын <strong>78%-ийг азот</strong>, 21%-ийг хүчилтөрөгч, 1%-ийг бусад хий эзэлдэг.</div>
       </div>
 
-      <!-- Академик төсөл -->
-      <div class="m-block">
-        <div class="m-label">Академик төсөл</div>
-
-        <div class="entry">
-          <div class="entry-date">2025 намар</div>
-          <div class="entry-body">
-            <div class="entry-title">thefacebook — Хуулбар сайт</div>
-            <div class="entry-sub">Лабораторийн ажил · МУИС</div>
-            <div class="entry-desc">HTML table layout ашиглан Facebook-ийн 2004 оны анхны загварыг хуулбарлаж хийсэн. Table-based layout болон CSS загварчлалын зарчмыг эзэмшсэн.</div>
-          </div>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Ямар амьтан өвлийн нойронд ордог вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio5" id="bio5a"><label class="opt-l" for="bio5a">А) Арслан</label>
+          <input class="opt-r no" type="radio" name="bio5" id="bio5b"><label class="opt-l" for="bio5b">Б) Чоно</label>
+          <input class="opt-r ok" type="radio" name="bio5" id="bio5c"><label class="opt-l iscorrect" for="bio5c">В) Хясаа</label>
+          <input class="opt-r no" type="radio" name="bio5" id="bio5d"><label class="opt-l" for="bio5d">Г) Зурам</label>
         </div>
-
-        <div class="entry">
-          <div class="entry-date">2025 хавар</div>
-          <div class="entry-body">
-            <div class="entry-title">Responsive Portfolio сайт</div>
-            <div class="entry-sub">Лабораторийн ажил · МУИС</div>
-            <div class="entry-desc">Media query болон CSS Grid ашиглан бүх төхөөрөмж дээр зөв харагдах хувийн вэб сайт бүтээсэн.</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2024 өвөл</div>
-          <div class="entry-body">
-            <div class="entry-title">Монгол хоолны жор сайт</div>
-            <div class="entry-sub">Хамтын төсөл · МУИС</div>
-            <div class="entry-desc">Bootstrap ашиглан хэрэглэгчдэд ээлтэй, гар утсанд тохирсон жор хайлтын сайт хийхэд оролцсон.</div>
-          </div>
-        </div>
-
+        <div class="exp">💡 <strong>Хясаа (баавгай)</strong> өвлийн нойронд орж хэдэн сар унтдаг. Зарим хясаа 5–6 сар унтах боломжтой.</div>
       </div>
 
-      <!-- Технологи -->
-      <div class="m-block">
-        <div class="m-label">Технологийн стек</div>
-        <div class="tags">
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Responsive Design</span>
-          <span class="tag">Bootstrap 5</span>
-          <span class="tag">Flexbox / Grid</span>
-          <span class="tag">Git / GitHub</span>
-          <span class="tag">VS Code</span>
-          <span class="tag">Figma</span>
-          <span class="tag">Media Queries</span>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Агаарын хэдэн хувийг хүчилтөрөгч (O₂) эзэлдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio6" id="bio6a"><label class="opt-l" for="bio6a">А) 15%</label>
+          <input class="opt-r no" type="radio" name="bio6" id="bio6b"><label class="opt-l" for="bio6b">Б) 25%</label>
+          <input class="opt-r ok" type="radio" name="bio6" id="bio6c"><label class="opt-l iscorrect" for="bio6c">В) 20.95%</label>
+          <input class="opt-r no" type="radio" name="bio6" id="bio6d"><label class="opt-l" for="bio6d">Г) 30%</label>
         </div>
+        <div class="exp">💡 Агаарын <strong>20.95%-ийг хүчилтөрөгч</strong> эзэлдэг. Азот 78%, бусад хий 1% орчим байдаг.</div>
       </div>
 
-      <!-- Амжилт -->
-      <div class="m-block">
-        <div class="m-label">Амжилт</div>
-        <div class="ach">
-          <div class="ach-dot"></div>
-          <div class="ach-text"><b>МУИС Хакатон 2025</b> — Веб дизайны тэмцээнд 3-р байр</div>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">Хүн хоногт хичнээн хэмжээний агаар амьсгалдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio7" id="bio7a"><label class="opt-l" for="bio7a">А) 5 кг</label>
+          <input class="opt-r ok" type="radio" name="bio7" id="bio7b"><label class="opt-l iscorrect" for="bio7b">Б) 12 кг</label>
+          <input class="opt-r no" type="radio" name="bio7" id="bio7c"><label class="opt-l" for="bio7c">В) 20 кг</label>
+          <input class="opt-r no" type="radio" name="bio7" id="bio7d"><label class="opt-l" for="bio7d">Г) 3 кг</label>
         </div>
-        <div class="ach">
-          <div class="ach-dot"></div>
-          <div class="ach-text"><b>Шилдэг оюутны тэтгэлэг</b> — 2024–2025 оны хичээлийн жилд академик амжилтаар тэтгэлэг хүртсэн</div>
+        <div class="exp">💡 Хүн хоногт дунджаар <strong>12 кг</strong> агаар амьсгалдаг. Энэ нь идэж уудаг хоол, усны хэмжээнээс илүү их юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Дэлхийн хэдэн хувийг ус эзэлдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="bio8" id="bio8a"><label class="opt-l" for="bio8a">А) 50%</label>
+          <input class="opt-r no" type="radio" name="bio8" id="bio8b"><label class="opt-l" for="bio8b">Б) 60%</label>
+          <input class="opt-r ok" type="radio" name="bio8" id="bio8c"><label class="opt-l iscorrect" for="bio8c">В) 71%</label>
+          <input class="opt-r no" type="radio" name="bio8" id="bio8d"><label class="opt-l" for="bio8d">Г) 80%</label>
         </div>
-        <div class="ach">
-          <div class="ach-dot"></div>
-          <div class="ach-text"><b>freeCodeCamp</b> — Responsive Web Design сертификат (2025)</div>
-        </div>
+        <div class="exp">💡 Дэлхийн гадаргуугийн <strong>71%-ийг ус</strong> эзэлдэг. Мөн хүний биеийн 70% орчим нь ус юм.</div>
       </div>
 
     </div>
   </div>
 
-  <!-- Доод монгол угалзан зурвас -->
-  <div class="footer-stripe"></div>
+  <!-- 🔢 МАТЕМАТИК -->
+  <div class="panel p-math">
+    <div class="sec-head"><span class="sec-ico">🔢</span><span class="sec-title">Математик</span></div>
+    <div class="quiz-list">
 
-</div>
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">125 × 8 = ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m1" id="m1a"><label class="opt-l" for="m1a">А) 900</label>
+          <input class="opt-r ok" type="radio" name="m1" id="m1b"><label class="opt-l iscorrect" for="m1b">Б) 1000</label>
+          <input class="opt-r no" type="radio" name="m1" id="m1c"><label class="opt-l" for="m1c">В) 1200</label>
+          <input class="opt-r no" type="radio" name="m1" id="m1d"><label class="opt-l" for="m1d">Г) 850</label>
+        </div>
+        <div class="exp">💡 125 × 8 = 125 × 4 × 2 = 500 × 2 = <strong>1000</strong>.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Гурвалжны гурван өнцгийн нийлбэр хэд вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m2" id="m2a"><label class="opt-l" for="m2a">А) 90°</label>
+          <input class="opt-r no" type="radio" name="m2" id="m2b"><label class="opt-l" for="m2b">Б) 270°</label>
+          <input class="opt-r ok" type="radio" name="m2" id="m2c"><label class="opt-l iscorrect" for="m2c">В) 180°</label>
+          <input class="opt-r no" type="radio" name="m2" id="m2d"><label class="opt-l" for="m2d">Г) 360°</label>
+        </div>
+        <div class="exp">💡 Гурвалжны гурван өнцгийн нийлбэр үргэлж <strong>180°</strong> байдаг. Дөрвөлжин бол 360°.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">2⁵ (2-ын тавдугаар зэрэг) хэд вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m3" id="m3a"><label class="opt-l" for="m3a">А) 10</label>
+          <input class="opt-r no" type="radio" name="m3" id="m3b"><label class="opt-l" for="m3b">Б) 25</label>
+          <input class="opt-r ok" type="radio" name="m3" id="m3c"><label class="opt-l iscorrect" for="m3c">В) 32</label>
+          <input class="opt-r no" type="radio" name="m3" id="m3d"><label class="opt-l" for="m3d">Г) 16</label>
+        </div>
+        <div class="exp">💡 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=<strong>32</strong>. Дараалан 2-оор үржих хэрэгтэй.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">0.75-ийг хуваарьтай бутархайгаар бичвэл?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m4" id="m4a"><label class="opt-l" for="m4a">А) 1/4</label>
+          <input class="opt-r ok" type="radio" name="m4" id="m4b"><label class="opt-l iscorrect" for="m4b">Б) 3/4</label>
+          <input class="opt-r no" type="radio" name="m4" id="m4c"><label class="opt-l" for="m4c">В) 2/3</label>
+          <input class="opt-r no" type="radio" name="m4" id="m4d"><label class="opt-l" for="m4d">Г) 7/10</label>
+        </div>
+        <div class="exp">💡 0.75 = 75/100 = <strong>3/4</strong>. Хялбарчлахад: 75÷25=3, 100÷25=4.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Тойргийн талбайн томьёо аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m5" id="m5a"><label class="opt-l" for="m5a">А) S = 2πr</label>
+          <input class="opt-r ok" type="radio" name="m5" id="m5b"><label class="opt-l iscorrect" for="m5b">Б) S = πr²</label>
+          <input class="opt-r no" type="radio" name="m5" id="m5c"><label class="opt-l" for="m5c">В) S = πd</label>
+          <input class="opt-r no" type="radio" name="m5" id="m5d"><label class="opt-l" for="m5d">Г) S = r²</label>
+        </div>
+        <div class="exp">💡 Тойргийн талбай <strong>S = πr²</strong>. Харин тойргийн тойм C = 2πr томьёогоор тооцдог.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Нэг мөч хэдэн минуттай тэнцэх вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="m6" id="m6a"><label class="opt-l" for="m6a">А) 10 минут</label>
+          <input class="opt-r ok" type="radio" name="m6" id="m6b"><label class="opt-l iscorrect" for="m6b">Б) 15 минут</label>
+          <input class="opt-r no" type="radio" name="m6" id="m6c"><label class="opt-l" for="m6c">В) 20 минут</label>
+          <input class="opt-r no" type="radio" name="m6" id="m6d"><label class="opt-l" for="m6d">Г) 30 минут</label>
+        </div>
+        <div class="exp">💡 Нэг мөч нь <strong>15 минут</strong>тай тэнцэнэ. 1 цаг = 4 мөч.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🌍 ГАЗАР ЗҮЙ -->
+  <div class="panel p-geo">
+    <div class="sec-head"><span class="sec-ico">🌍</span><span class="sec-title">Газар зүй</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Дэлхийн хамгийн урт гол аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g1" id="g1a"><label class="opt-l" for="g1a">А) Амазон</label>
+          <input class="opt-r ok" type="radio" name="g1" id="g1b"><label class="opt-l iscorrect" for="g1b">Б) Нил</label>
+          <input class="opt-r no" type="radio" name="g1" id="g1c"><label class="opt-l" for="g1c">В) Янцзы</label>
+          <input class="opt-r no" type="radio" name="g1" id="g1d"><label class="opt-l" for="g1d">Г) Миссисипи</label>
+        </div>
+        <div class="exp">💡 <strong>Нил гол</strong> 6 650 км урттай бөгөөд дэлхийн хамгийн урт гол юм. Африк тивд урсдаг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Монгол улс хэдэн аймагтай вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g2" id="g2a"><label class="opt-l" for="g2a">А) 18</label>
+          <input class="opt-r no" type="radio" name="g2" id="g2b"><label class="opt-l" for="g2b">Б) 19</label>
+          <input class="opt-r ok" type="radio" name="g2" id="g2c"><label class="opt-l iscorrect" for="g2c">В) 21</label>
+          <input class="opt-r no" type="radio" name="g2" id="g2d"><label class="opt-l" for="g2d">Г) 22</label>
+        </div>
+        <div class="exp">💡 Монгол улс нийт <strong>21 аймаг</strong>, 1 нийслэлтэй. Нийслэл Улаанбаатар нь аймагтай тэнцүү эрхтэй.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Дэлхийн хамгийн өндөр уул аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g3" id="g3a"><label class="opt-l" for="g3a">А) К2</label>
+          <input class="opt-r ok" type="radio" name="g3" id="g3b"><label class="opt-l iscorrect" for="g3b">Б) Эверест</label>
+          <input class="opt-r no" type="radio" name="g3" id="g3c"><label class="opt-l" for="g3c">В) Канченжунга</label>
+          <input class="opt-r no" type="radio" name="g3" id="g3d"><label class="opt-l" for="g3d">Г) Аконкагуа</label>
+        </div>
+        <div class="exp">💡 <strong>Эверест</strong> уул далайн түвшнээс 8 848 м өндөрт оршдог. Непал болон Хятадын хилд байрладаг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Говь цөл ямар тивд байрладаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g4" id="g4a"><label class="opt-l" for="g4a">А) Африк</label>
+          <input class="opt-r no" type="radio" name="g4" id="g4b"><label class="opt-l" for="g4b">Б) Австрали</label>
+          <input class="opt-r ok" type="radio" name="g4" id="g4c"><label class="opt-l iscorrect" for="g4c">В) Ази</label>
+          <input class="opt-r no" type="radio" name="g4" id="g4d"><label class="opt-l" for="g4d">Г) Хойд Америк</label>
+        </div>
+        <div class="exp">💡 <strong>Говь цөл</strong> нь Ази тивд, Монгол болон Хятадын нутагт оршдог дэлхийн дөрөв дэх том цөл юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Дэлхийн хамгийн том тив аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r ok" type="radio" name="g5" id="g5a"><label class="opt-l iscorrect" for="g5a">А) Ази</label>
+          <input class="opt-r no" type="radio" name="g5" id="g5b"><label class="opt-l" for="g5b">Б) Африк</label>
+          <input class="opt-r no" type="radio" name="g5" id="g5c"><label class="opt-l" for="g5c">В) Хойд Америк</label>
+          <input class="opt-r no" type="radio" name="g5" id="g5d"><label class="opt-l" for="g5d">Г) Европ</label>
+        </div>
+        <div class="exp">💡 <strong>Ази</strong> тив 44.6 сая км² талбайтай бөгөөд дэлхийн хамгийн том тив. Хүн амын хувьд ч хамгийн олон хүнтэй.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">МУ-ын хамгийн өндөр цэг аль вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g6" id="g6a"><label class="opt-l" for="g6a">А) Отгонтэнгэр</label>
+          <input class="opt-r no" type="radio" name="g6" id="g6b"><label class="opt-l" for="g6b">Б) Цэцээ гүн</label>
+          <input class="opt-r ok" type="radio" name="g6" id="g6c"><label class="opt-l iscorrect" for="g6c">В) Хүйтний оргил</label>
+          <input class="opt-r no" type="radio" name="g6" id="g6d"><label class="opt-l" for="g6d">Г) Мөнх хайрхан</label>
+        </div>
+        <div class="exp">💡 Монгол улсын хамгийн өндөр цэг нь <strong>Хүйтний оргил</strong> юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">МУ-ын хамгийн том газар нутагтай аймаг аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g7" id="g7a"><label class="opt-l" for="g7a">А) Дорнод</label>
+          <input class="opt-r ok" type="radio" name="g7" id="g7b"><label class="opt-l iscorrect" for="g7b">Б) Өмнөговь</label>
+          <input class="opt-r no" type="radio" name="g7" id="g7c"><label class="opt-l" for="g7c">В) Завхан</label>
+          <input class="opt-r no" type="radio" name="g7" id="g7d"><label class="opt-l" for="g7d">Г) Хэнтий</label>
+        </div>
+        <div class="exp">💡 <strong>Өмнөговь аймаг</strong> нь Монгол улсын хамгийн том газар нутагтай аймаг бөгөөд нийслэл нь Даланзадгад хот юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Монгол улс газар нутгаараа дэлхийд хэддүгээрт ордог вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g8" id="g8a"><label class="opt-l" for="g8a">А) 10-рт</label>
+          <input class="opt-r no" type="radio" name="g8" id="g8b"><label class="opt-l" for="g8b">Б) 12-рт</label>
+          <input class="opt-r ok" type="radio" name="g8" id="g8c"><label class="opt-l iscorrect" for="g8c">В) 18-рт</label>
+          <input class="opt-r no" type="radio" name="g8" id="g8d"><label class="opt-l" for="g8d">Г) 25-рт</label>
+        </div>
+        <div class="exp">💡 Монгол улс 1.564 сая км² нутагтай бөгөөд газар нутгаараа дэлхийд <strong>18-р байр</strong>т ордог.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 9</span>
+        <p class="q-txt">Дэлхийн хамгийн том элсэн цөл аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g9" id="g9a"><label class="opt-l" for="g9a">А) Говь</label>
+          <input class="opt-r no" type="radio" name="g9" id="g9b"><label class="opt-l" for="g9b">Б) Арабын цөл</label>
+          <input class="opt-r ok" type="radio" name="g9" id="g9c"><label class="opt-l iscorrect" for="g9c">В) Сахар</label>
+          <input class="opt-r no" type="radio" name="g9" id="g9d"><label class="opt-l" for="g9d">Г) Намиб</label>
+        </div>
+        <div class="exp">💡 <strong>Сахар цөл</strong> нь Африк тивд оршдог дэлхийн хамгийн том халуун элсэн цөл юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 10</span>
+        <p class="q-txt">Архангай аймгийн төв хот аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="g10" id="g10a"><label class="opt-l" for="g10a">А) Улиастай</label>
+          <input class="opt-r ok" type="radio" name="g10" id="g10b"><label class="opt-l iscorrect" for="g10b">Б) Цэцэрлэг</label>
+          <input class="opt-r no" type="radio" name="g10" id="g10c"><label class="opt-l" for="g10c">В) Мөрөн</label>
+          <input class="opt-r no" type="radio" name="g10" id="g10d"><label class="opt-l" for="g10d">Г) Баянхонгор</label>
+        </div>
+        <div class="exp">💡 Архангай аймгийн нийслэл нь <strong>Цэцэрлэг</strong> хот юм.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⚔️ ТҮҮХ -->
+  <div class="panel p-hist">
+    <div class="sec-head"><span class="sec-ico">⚔️</span><span class="sec-title">Түүх</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Чингис хаан хэдэн онд төрсөн бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h1" id="h1a"><label class="opt-l" for="h1a">А) 1155</label>
+          <input class="opt-r ok" type="radio" name="h1" id="h1b"><label class="opt-l iscorrect" for="h1b">Б) 1162</label>
+          <input class="opt-r no" type="radio" name="h1" id="h1c"><label class="opt-l" for="h1c">В) 1170</label>
+          <input class="opt-r no" type="radio" name="h1" id="h1d"><label class="opt-l" for="h1d">Г) 1148</label>
+        </div>
+        <div class="exp">💡 <strong>Чингис хаан 1162</strong> онд Дэлүүн Болдогт төрсөн. Жинхэнэ нэр нь Тэмүжин. 1206 онд Их Монгол улсыг байгуулсан.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Монгол улсын ардчилсан үндсэн хуулийг хэдэн онд батласан бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h2" id="h2a"><label class="opt-l" for="h2a">А) 1990</label>
+          <input class="opt-r no" type="radio" name="h2" id="h2b"><label class="opt-l" for="h2b">Б) 1991</label>
+          <input class="opt-r ok" type="radio" name="h2" id="h2c"><label class="opt-l iscorrect" for="h2c">В) 1992</label>
+          <input class="opt-r no" type="radio" name="h2" id="h2d"><label class="opt-l" for="h2d">Г) 1993</label>
+        </div>
+        <div class="exp">💡 Монгол улсын одоогийн үндсэн хуулийг <strong>1992 оны 1-р сарын 13</strong>-нд баталсан.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Хятадын цагаан хэрмийн урт ойролцоогоор хэд вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h3" id="h3a"><label class="opt-l" for="h3a">А) 5 000 км</label>
+          <input class="opt-r no" type="radio" name="h3" id="h3b"><label class="opt-l" for="h3b">Б) 10 000 км</label>
+          <input class="opt-r ok" type="radio" name="h3" id="h3c"><label class="opt-l iscorrect" for="h3c">В) 21 000 км</label>
+          <input class="opt-r no" type="radio" name="h3" id="h3d"><label class="opt-l" for="h3d">Г) 30 000 км</label>
+        </div>
+        <div class="exp">💡 Хятадын цагаан хэрмийн нийт урт <strong>21 196 км</strong> гэж тооцоологдсон. МЭӨ 7-р зуунаас баригдаж эхэлсэн.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Монголын нууц товчоо хэдэн онд бичигдсэн бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h4" id="h4a"><label class="opt-l" for="h4a">А) 1200 он</label>
+          <input class="opt-r ok" type="radio" name="h4" id="h4b"><label class="opt-l iscorrect" for="h4b">Б) 1240 он</label>
+          <input class="opt-r no" type="radio" name="h4" id="h4c"><label class="opt-l" for="h4c">В) 1206 он</label>
+          <input class="opt-r no" type="radio" name="h4" id="h4d"><label class="opt-l" for="h4d">Г) 1300 он</label>
+        </div>
+        <div class="exp">💡 <strong>Монголын нууц товчоо</strong> нь 1240 онд бичигдсэн Монголын хамгийн эртний үнэт дурсгал бөгөөд Чингис хааны амьдрал, Монголын тухай өгүүлдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Монголын нүүдэлчдийн гэр ямар хэлбэртэй байдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h5" id="h5a"><label class="opt-l" for="h5a">А) Дөрвөлжин</label>
+          <input class="opt-r no" type="radio" name="h5" id="h5b"><label class="opt-l" for="h5b">Б) Гурвалжин</label>
+          <input class="opt-r ok" type="radio" name="h5" id="h5c"><label class="opt-l iscorrect" for="h5c">В) Дугуй</label>
+          <input class="opt-r no" type="radio" name="h5" id="h5d"><label class="opt-l" for="h5d">Г) Зургаан өнцөгт</label>
+        </div>
+        <div class="exp">💡 Монгол гэр нь <strong>дугуй хэлбэртэй</strong>. Дугуй хэлбэр нь салхи тэсвэрлэх, дулаан хадгалах талаараа маш сайн.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Чингис хааны дараагийн хаан хэн болсон бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h6" id="h6a"><label class="opt-l" for="h6a">А) Жочи</label>
+          <input class="opt-r no" type="radio" name="h6" id="h6b"><label class="opt-l" for="h6b">Б) Цагадай</label>
+          <input class="opt-r ok" type="radio" name="h6" id="h6c"><label class="opt-l iscorrect" for="h6c">В) Өгөдэй</label>
+          <input class="opt-r no" type="radio" name="h6" id="h6d"><label class="opt-l" for="h6d">Г) Толуй</label>
+        </div>
+        <div class="exp">💡 Чингис хааны залгамжлагч нь хүү <strong>Өгөдэй</strong> хаан. Чингис хаан өөрөө өвлүүлэхийг хүссэн байдаг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">Чингис хааны аавыг хэн гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h7" id="h7a"><label class="opt-l" for="h7a">А) Хабул</label>
+          <input class="opt-r ok" type="radio" name="h7" id="h7b"><label class="opt-l iscorrect" for="h7b">Б) Есүхэй</label>
+          <input class="opt-r no" type="radio" name="h7" id="h7c"><label class="opt-l" for="h7c">В) Амбагай</label>
+          <input class="opt-r no" type="radio" name="h7" id="h7d"><label class="opt-l" for="h7d">Г) Тодоэн</label>
+        </div>
+        <div class="exp">💡 Чингис хааны эцэг нь <strong>Есүхэй баатар</strong>. Есүхэй нь Тэмүжин бага байхад хорлогдон нас барсан.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Тэмүжин, Жамуха хоёр гурав дахь удаа анд бололцохдоо юу солилцсон бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h8" id="h8a"><label class="opt-l" for="h8a">А) Зэвсэг, сум</label>
+          <input class="opt-r ok" type="radio" name="h8" id="h8b"><label class="opt-l iscorrect" for="h8b">Б) Бүс, морь</label>
+          <input class="opt-r no" type="radio" name="h8" id="h8c"><label class="opt-l" for="h8c">В) Алт, мөнгө</label>
+          <input class="opt-r no" type="radio" name="h8" id="h8d"><label class="opt-l" for="h8d">Г) Нум, сум</label>
+        </div>
+        <div class="exp">💡 Тэмүжин, Жамуха хоёр гурав дахь удаа анд бололцохдоо <strong>бүс болон морь</strong> солилцсон байдаг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 9</span>
+        <p class="q-txt">МУ-ын үндсэн хууль хэдэн бүлэгтэй вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="h9" id="h9a"><label class="opt-l" for="h9a">А) 4</label>
+          <input class="opt-r no" type="radio" name="h9" id="h9b"><label class="opt-l" for="h9b">Б) 5</label>
+          <input class="opt-r ok" type="radio" name="h9" id="h9c"><label class="opt-l iscorrect" for="h9c">В) 6</label>
+          <input class="opt-r no" type="radio" name="h9" id="h9d"><label class="opt-l" for="h9d">Г) 8</label>
+        </div>
+        <div class="exp">💡 Монгол улсын үндсэн хууль <strong>6 бүлэг</strong>тэй. 1992 оны 1 дүгээр сарын 13-нд батлагдсан.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🌌 САНСАР -->
+  <div class="panel p-space">
+    <div class="sec-head"><span class="sec-ico">🌌</span><span class="sec-title">Сансар</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Нарны аймгийн хамгийн том гараг аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s1" id="s1a"><label class="opt-l" for="s1a">А) Санчир</label>
+          <input class="opt-r ok" type="radio" name="s1" id="s1b"><label class="opt-l iscorrect" for="s1b">Б) Бархасбадь</label>
+          <input class="opt-r no" type="radio" name="s1" id="s1c"><label class="opt-l" for="s1c">В) Уран</label>
+          <input class="opt-r no" type="radio" name="s1" id="s1d"><label class="opt-l" for="s1d">Г) Далайван</label>
+        </div>
+        <div class="exp">💡 <strong>Бархасбадь (Юпитер)</strong> нь нарны аймгийн хамгийн том гараг. Дэлхийгээс 1300 дахин том!</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Нарнаас гарсан гэрэл дэлхийд хэдэн минутад хүрдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s2" id="s2a"><label class="opt-l" for="s2a">А) 1 минут</label>
+          <input class="opt-r ok" type="radio" name="s2" id="s2b"><label class="opt-l iscorrect" for="s2b">Б) 8 минут</label>
+          <input class="opt-r no" type="radio" name="s2" id="s2c"><label class="opt-l" for="s2c">В) 30 минут</label>
+          <input class="opt-r no" type="radio" name="s2" id="s2d"><label class="opt-l" for="s2d">Г) 2 цаг</label>
+        </div>
+        <div class="exp">💡 Нарнаас гарсан гэрэл дэлхийд хүрэхэд яг <strong>8 минут 20 секунд</strong> зарцуулдаг. Зай нь 150 сая км.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Нарны аймагт хэдэн гараг байдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s3" id="s3a"><label class="opt-l" for="s3a">А) 7</label>
+          <input class="opt-r ok" type="radio" name="s3" id="s3b"><label class="opt-l iscorrect" for="s3b">Б) 8</label>
+          <input class="opt-r no" type="radio" name="s3" id="s3c"><label class="opt-l" for="s3c">В) 9</label>
+          <input class="opt-r no" type="radio" name="s3" id="s3d"><label class="opt-l" for="s3d">Г) 10</label>
+        </div>
+        <div class="exp">💡 2006 оноос Плутоныг одой гараг болгосноор нарны аймагт <strong>8 гараг</strong> байна: Меркури, Венер, Дэлхий, Ангараг, Бархасбадь, Санчир, Уран, Далайван.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Сар дэлхийг хэдэн хоногт нэг удаа тойрдог вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s4" id="s4a"><label class="opt-l" for="s4a">А) 7 хоног</label>
+          <input class="opt-r no" type="radio" name="s4" id="s4b"><label class="opt-l" for="s4b">Б) 15 хоног</label>
+          <input class="opt-r ok" type="radio" name="s4" id="s4c"><label class="opt-l iscorrect" for="s4c">В) 27 хоног</label>
+          <input class="opt-r no" type="radio" name="s4" id="s4d"><label class="opt-l" for="s4d">Г) 30 хоног</label>
+        </div>
+        <div class="exp">💡 Сар дэлхийг тойрон нэг удаа эргэхэд <strong>27.3 хоног</strong> зарцуулдаг. Энэ нь дэлхийн таталцлын хүчний улмаас болдог.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Орчлон ертөнц хэдэн жилийн өмнө үүссэн гэж тооцдог вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s5" id="s5a"><label class="opt-l" for="s5a">А) 5 тэрбум жил</label>
+          <input class="opt-r no" type="radio" name="s5" id="s5b"><label class="opt-l" for="s5b">Б) 10 тэрбум жил</label>
+          <input class="opt-r ok" type="radio" name="s5" id="s5c"><label class="opt-l iscorrect" for="s5c">В) 13.8 тэрбум жил</label>
+          <input class="opt-r no" type="radio" name="s5" id="s5d"><label class="opt-l" for="s5d">Г) 20 тэрбум жил</label>
+        </div>
+        <div class="exp">💡 Орчлон ертөнц <strong>13.8 тэрбум жилийн өмнө</strong> Их тэсрэлт (Big Bang)-ын үед үүссэн гэж шинжлэх ухаан тогтоожээ.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Жилийн 4 улирал яагаад ээлжилдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="s6" id="s6a"><label class="opt-l" for="s6a">А) Сар дэлхийг тойрдог</label>
+          <input class="opt-r ok" type="radio" name="s6" id="s6b"><label class="opt-l iscorrect" for="s6b">Б) Дэлхий нарыг тойрдог</label>
+          <input class="opt-r no" type="radio" name="s6" id="s6c"><label class="opt-l" for="s6c">В) Нар хөдөлдөг</label>
+          <input class="opt-r no" type="radio" name="s6" id="s6d"><label class="opt-l" for="s6d">Г) Дэлхий эргэдэг</label>
+        </div>
+        <div class="exp">💡 Жилийн 4 улирал ээлжлэх нь <strong>дэлхий нарыг тойрдог</strong>тай холбоотой. Тойрох замд хэлбийсэн байдлаас улирал үүснэ.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🐾 АМЬТАД -->
+  <div class="panel p-ani">
+    <div class="sec-head"><span class="sec-ico">🐾</span><span class="sec-title">Амьтдын ертөнц</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Дэлхийн хамгийн хурдан газрын амьтан аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a1" id="a1a"><label class="opt-l" for="a1a">А) Арслан</label>
+          <input class="opt-r ok" type="radio" name="a1" id="a1b"><label class="opt-l iscorrect" for="a1b">Б) Гепард</label>
+          <input class="opt-r no" type="radio" name="a1" id="a1c"><label class="opt-l" for="a1c">В) Зебра</label>
+          <input class="opt-r no" type="radio" name="a1" id="a1d"><label class="opt-l" for="a1d">Г) Морь</label>
+        </div>
+        <div class="exp">💡 <strong>Гепард</strong> цагт 112 км хүртэл хурдтай гүйж чаддаг. Энэ нь дэлхийн хамгийн хурдан газрын амьтан юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Дэлхийн хамгийн том амьтан аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a2" id="a2a"><label class="opt-l" for="a2a">А) Заан</label>
+          <input class="opt-r ok" type="radio" name="a2" id="a2b"><label class="opt-l iscorrect" for="a2b">Б) Хөх халим</label>
+          <input class="opt-r no" type="radio" name="a2" id="a2c"><label class="opt-l" for="a2c">В) Акула</label>
+          <input class="opt-r no" type="radio" name="a2" id="a2d"><label class="opt-l" for="a2d">Г) Том могой</label>
+        </div>
+        <div class="exp">💡 <strong>Хөх халим (Blue whale)</strong> урт нь 30 метр, жин нь 150 тонн хүрдэг. Дэлхийд амьдарч байгаа хамгийн том амьтан.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Монголын үндэсний амьтан аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a3" id="a3a"><label class="opt-l" for="a3a">А) Цаа буга</label>
+          <input class="opt-r no" type="radio" name="a3" id="a3b"><label class="opt-l" for="a3b">Б) Тахь</label>
+          <input class="opt-r ok" type="radio" name="a3" id="a3c"><label class="opt-l iscorrect" for="a3c">В) Монгол морь</label>
+          <input class="opt-r no" type="radio" name="a3" id="a3d"><label class="opt-l" for="a3d">Г) Арслан</label>
+        </div>
+        <div class="exp">💡 <strong>Монгол морь</strong> бол Монголын үндэсний амьтан. Монголчуудын соёл, түүхтэй салшгүй холбоотой. Монголд 3 сая гаруй морь байдаг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Арьс нь өнгө солигдох чадвартай амьтан аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a4" id="a4a"><label class="opt-l" for="a4a">А) Гүрвэл</label>
+          <input class="opt-r ok" type="radio" name="a4" id="a4b"><label class="opt-l iscorrect" for="a4b">Б) Хамелеон</label>
+          <input class="opt-r no" type="radio" name="a4" id="a4c"><label class="opt-l" for="a4c">В) Могой</label>
+          <input class="opt-r no" type="radio" name="a4" id="a4d"><label class="opt-l" for="a4d">Г) Мэлхий</label>
+        </div>
+        <div class="exp">💡 <strong>Хамелеон</strong> арьсан доорх пигментийн эсийнхаа тусламжтайгаар өнгөө солино. Нуугдах болон дохио өгөх зорилгоор хийдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Хамгийн урт наслах амьтан аль нь вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a5" id="a5a"><label class="opt-l" for="a5a">А) Заан</label>
+          <input class="opt-r no" type="radio" name="a5" id="a5b"><label class="opt-l" for="a5b">Б) Тэмээ</label>
+          <input class="opt-r ok" type="radio" name="a5" id="a5c"><label class="opt-l iscorrect" for="a5c">В) Далайн яст мэлхий</label>
+          <input class="opt-r no" type="radio" name="a5" id="a5d"><label class="opt-l" for="a5d">Г) Цагаан баавгай</label>
+        </div>
+        <div class="exp">💡 <strong>Далайн яст мэлхий</strong> 150–200 жил хүртэл наслах боломжтой. Дэлхийн хамгийн урт наслах нурууны хөвчтний нэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">12 жилийн 10 дахь амьтан юу вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a6" id="a6a"><label class="opt-l" for="a6a">А) Нохой</label>
+          <input class="opt-r ok" type="radio" name="a6" id="a6b"><label class="opt-l iscorrect" for="a6b">Б) Тахиа</label>
+          <input class="opt-r no" type="radio" name="a6" id="a6c"><label class="opt-l" for="a6c">В) Могой</label>
+          <input class="opt-r no" type="radio" name="a6" id="a6d"><label class="opt-l" for="a6d">Г) Морь</label>
+        </div>
+        <div class="exp">💡 Арван хоёр жилийн дарааллаар: Хулгана, Үхэр, Бар, Туулай, Луу, Могой, Морь, Хонь, Сармагчин, <strong>Тахиа</strong>, Нохой, Гахай.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">12 жилийн 6 дахь жил ямар амьтан вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a7" id="a7a"><label class="opt-l" for="a7a">А) Луу</label>
+          <input class="opt-r ok" type="radio" name="a7" id="a7b"><label class="opt-l iscorrect" for="a7b">Б) Могой</label>
+          <input class="opt-r no" type="radio" name="a7" id="a7c"><label class="opt-l" for="a7c">В) Морь</label>
+          <input class="opt-r no" type="radio" name="a7" id="a7d"><label class="opt-l" for="a7d">Г) Хонь</label>
+        </div>
+        <div class="exp">💡 Арван хоёр жилийн 6 дахь жил нь <strong>Могой</strong> юм: Хулгана(1), Үхэр(2), Бар(3), Туулай(4), Луу(5), Могой(6)...</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Малд хэдэн шагай байдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="a8" id="a8a"><label class="opt-l" for="a8a">А) Нэг</label>
+          <input class="opt-r ok" type="radio" name="a8" id="a8b"><label class="opt-l iscorrect" for="a8b">Б) Хоёр</label>
+          <input class="opt-r no" type="radio" name="a8" id="a8c"><label class="opt-l" for="a8c">В) Дөрөв</label>
+          <input class="opt-r no" type="radio" name="a8" id="a8d"><label class="opt-l" for="a8d">Г) Зургаа</label>
+        </div>
+        <div class="exp">💡 Малд <strong>хоёр</strong> шагай байдаг. Шагай нь ясны тоглоомд ашиглагддаг Монголын уламжлалт наадгай.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🏠 МОНГОЛ ЁС ЗАНШИЛ -->
+  <div class="panel p-culture">
+    <div class="sec-head"><span class="sec-ico">🏠</span><span class="sec-title">Монгол ёс заншил</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Монголчууд хаана дуулахыг цээрлэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c1" id="c1a"><label class="opt-l" for="c1a">А) Гадаа</label>
+          <input class="opt-r ok" type="radio" name="c1" id="c1b"><label class="opt-l iscorrect" for="c1b">Б) Орондоо</label>
+          <input class="opt-r no" type="radio" name="c1" id="c1c"><label class="opt-l" for="c1c">В) Усан дээр</label>
+          <input class="opt-r no" type="radio" name="c1" id="c1d"><label class="opt-l" for="c1d">Г) Уулан дээр</label>
+        </div>
+        <div class="exp">💡 Монгол ёс заншилд <strong>орондоо дуулахыг</strong> цээрлэдэг. Энэ нь эртний уламжлалт итгэл үнэмшилтэй холбоотой.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">Монгол гэрийн цонхыг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c2" id="c2a"><label class="opt-l" for="c2a">А) Багана</label>
+          <input class="opt-r no" type="radio" name="c2" id="c2b"><label class="opt-l" for="c2b">Б) Хаалга</label>
+          <input class="opt-r ok" type="radio" name="c2" id="c2c"><label class="opt-l iscorrect" for="c2c">В) Тооно</label>
+          <input class="opt-r no" type="radio" name="c2" id="c2d"><label class="opt-l" for="c2d">Г) Чагтага</label>
+        </div>
+        <div class="exp">💡 Монгол гэрийн дээд хэсгийн дугуй нүхийг <strong>тооно</strong> гэдэг. Гэрийн гэрэл, агааржуулалтын үүрэг гүйцэтгэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">Монгол гэрт ил гал түлэхэд зориулсан хэрэгслийг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c3" id="c3a"><label class="opt-l" for="c3a">А) Тооно</label>
+          <input class="opt-r no" type="radio" name="c3" id="c3b"><label class="opt-l" for="c3b">Б) Шал</label>
+          <input class="opt-r ok" type="radio" name="c3" id="c3c"><label class="opt-l iscorrect" for="c3c">В) Тулга</label>
+          <input class="opt-r no" type="radio" name="c3" id="c3d"><label class="opt-l" for="c3d">Г) Чагтага</label>
+        </div>
+        <div class="exp">💡 Монгол гэрт ил гал түлэх тусгай суурийг <strong>тулга</strong> гэдэг. Тулга гурван хөлтэй төмөр хэрэгсэл юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Монголчууд цагаан сараар тавгын идээгээ ямар тоогоор засдаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c4" id="c4a"><label class="opt-l" for="c4a">А) Тэгш тоогоор</label>
+          <input class="opt-r ok" type="radio" name="c4" id="c4b"><label class="opt-l iscorrect" for="c4b">Б) Сондгой тоогоор</label>
+          <input class="opt-r no" type="radio" name="c4" id="c4c"><label class="opt-l" for="c4c">В) 12 тоогоор</label>
+          <input class="opt-r no" type="radio" name="c4" id="c4d"><label class="opt-l" for="c4d">Г) 9 тоогоор</label>
+        </div>
+        <div class="exp">💡 Монголчууд цагаан сараар тавгын идээгээ <strong>сондгой тоогоор</strong> засдаг. Сондгой тоо нь аз жаргалыг бэлгэддэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Гүүний саамаар хийсэн цагаан идээ юу вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c5" id="c5a"><label class="opt-l" for="c5a">А) Тараг</label>
+          <input class="opt-r no" type="radio" name="c5" id="c5b"><label class="opt-l" for="c5b">Б) Ааруул</label>
+          <input class="opt-r ok" type="radio" name="c5" id="c5c"><label class="opt-l iscorrect" for="c5c">В) Айраг</label>
+          <input class="opt-r no" type="radio" name="c5" id="c5d"><label class="opt-l" for="c5d">Г) Бяслаг</label>
+        </div>
+        <div class="exp">💡 <strong>Айраг</strong> нь гүүний сүүг исгэж хийдэг Монголын уламжлалт ундаа. Монгол нүүдэлчдийн зуны гол хоол юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Шинийн долоонд яахыг цээрлэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c6" id="c6a"><label class="opt-l" for="c6a">А) Дуулахыг</label>
+          <input class="opt-r no" type="radio" name="c6" id="c6b"><label class="opt-l" for="c6b">Б) Унтахыг</label>
+          <input class="opt-r ok" type="radio" name="c6" id="c6c"><label class="opt-l iscorrect" for="c6c">В) Золгохыг</label>
+          <input class="opt-r no" type="radio" name="c6" id="c6d"><label class="opt-l" for="c6d">Г) Идэхийг</label>
+        </div>
+        <div class="exp">💡 Шинийн долоонд <strong>золгохыг</strong> цээрлэдэг. Цагаан сарын 7-д ах дүү нар хоорондоо золговол хагацна гэж уламжлалд өгүүлдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">Эрт үед монголчууд хүндтэй хүний гэрээс яаж гардаг байсан бэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c7" id="c7a"><label class="opt-l" for="c7a">А) Гүйж</label>
+          <input class="opt-r ok" type="radio" name="c7" id="c7b"><label class="opt-l iscorrect" for="c7b">Б) Ухарч</label>
+          <input class="opt-r no" type="radio" name="c7" id="c7c"><label class="opt-l" for="c7c">В) Нугарч</label>
+          <input class="opt-r no" type="radio" name="c7" id="c7d"><label class="opt-l" for="c7d">Г) Мөргөж</label>
+        </div>
+        <div class="exp">💡 Эрт цагт хүндтэй хүний гэрээс <strong>ухарч</strong> буюу нуруугаа харуулахгүйгээр гардаг байсан. Энэ нь хүндэтгэлийн илэрхийлэл юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Монгол гэрийн тоононы голоос уядаг оосрыг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c8" id="c8a"><label class="opt-l" for="c8a">А) Тулга</label>
+          <input class="opt-r no" type="radio" name="c8" id="c8b"><label class="opt-l" for="c8b">Б) Баавар</label>
+          <input class="opt-r ok" type="radio" name="c8" id="c8c"><label class="opt-l iscorrect" for="c8c">В) Чагтага</label>
+          <input class="opt-r no" type="radio" name="c8" id="c8d"><label class="opt-l" for="c8d">Г) Дэгэл</label>
+        </div>
+        <div class="exp">💡 Монгол гэрийн тоононы голоос уядаг оосрыг <strong>чагтага</strong> гэдэг. Энэ нь гэрийн бүтцийг тогтворжуулахад туслана.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 9</span>
+        <p class="q-txt">Хайчийг бусдад өгөхдөө аль талаар нь өгөх вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c9" id="c9a"><label class="opt-l" for="c9a">А) Ир талаар нь</label>
+          <input class="opt-r ok" type="radio" name="c9" id="c9b"><label class="opt-l iscorrect" for="c9b">Б) Бариулаар нь</label>
+          <input class="opt-r no" type="radio" name="c9" id="c9c"><label class="opt-l" for="c9c">В) Хажуу талаар нь</label>
+          <input class="opt-r no" type="radio" name="c9" id="c9d"><label class="opt-l" for="c9d">Г) Хамаагүй</label>
+        </div>
+        <div class="exp">💡 Монгол заншилд хайч болон хутга зэрэг ирлэг зүйлийг бусдад <strong>бариулаар нь</strong> өгдөг. Ирийг харуулах нь хүндэтгэлгүй гэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 10</span>
+        <p class="q-txt">Монголчууд байгалийн ямар үзэгдлийг "луу унжих" гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="c10" id="c10a"><label class="opt-l" for="c10a">А) Аянга</label>
+          <input class="opt-r ok" type="radio" name="c10" id="c10b"><label class="opt-l iscorrect" for="c10b">Б) Хуй салхи</label>
+          <input class="opt-r no" type="radio" name="c10" id="c10c"><label class="opt-l" for="c10c">В) Бороо</label>
+          <input class="opt-r no" type="radio" name="c10" id="c10d"><label class="opt-l" for="c10d">Г) Нийлэг үүл</label>
+        </div>
+        <div class="exp">💡 Монголчууд <strong>хуй салхийг</strong> "луу унжих" гэдэг. Эртний итгэл үнэмшилд луу тэнгэрээс газарт бууж хуй салхи үүсгэдэг гэж үздэг.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 📖 МОНГОЛ МЭДЛЭГ -->
+  <div class="panel p-mongol">
+    <div class="sec-head"><span class="sec-ico">📖</span><span class="sec-title">Монгол мэдлэг</span></div>
+    <div class="quiz-list">
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 1</span>
+        <p class="q-txt">Охиноосоо төрсөн хүүхдийг юу гэж дуудах вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn1" id="mn1a"><label class="opt-l" for="mn1a">А) Ач</label>
+          <input class="opt-r ok" type="radio" name="mn1" id="mn1b"><label class="opt-l iscorrect" for="mn1b">Б) Зээ</label>
+          <input class="opt-r no" type="radio" name="mn1" id="mn1c"><label class="opt-l" for="mn1c">В) Дүү</label>
+          <input class="opt-r no" type="radio" name="mn1" id="mn1d"><label class="opt-l" for="mn1d">Г) Хүрэнгэ</label>
+        </div>
+        <div class="exp">💡 Охиноосоо төрсөн хүүхдийг <strong>зээ</strong> гэдэг. Хөвүүнээсээ төрсөн хүүхдийг "ач" гэнэ.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 2</span>
+        <p class="q-txt">2 настай адууг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r ok" type="radio" name="mn2" id="mn2a"><label class="opt-l iscorrect" for="mn2a">А) Даага</label>
+          <input class="opt-r no" type="radio" name="mn2" id="mn2b"><label class="opt-l" for="mn2b">Б) Унага</label>
+          <input class="opt-r no" type="radio" name="mn2" id="mn2c"><label class="opt-l" for="mn2c">В) Тором</label>
+          <input class="opt-r no" type="radio" name="mn2" id="mn2d"><label class="opt-l" for="mn2d">Г) Бяруу</label>
+        </div>
+        <div class="exp">💡 2 настай адууг <strong>даага</strong> гэдэг. Уралдаанд хамгийн сүүлд ирсэн даагыг "баян ходоод" гэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 3</span>
+        <p class="q-txt">2 настай үхэрийг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn3" id="mn3a"><label class="opt-l" for="mn3a">А) Тором</label>
+          <input class="opt-r no" type="radio" name="mn3" id="mn3b"><label class="opt-l" for="mn3b">Б) Хурга</label>
+          <input class="opt-r ok" type="radio" name="mn3" id="mn3c"><label class="opt-l iscorrect" for="mn3c">В) Бяруу</label>
+          <input class="opt-r no" type="radio" name="mn3" id="mn3d"><label class="opt-l" for="mn3d">Г) Даага</label>
+        </div>
+        <div class="exp">💡 2 настай үхрийг <strong>бяруу</strong> гэдэг. 2 настай тэмээг тором, хонины төлийг хурга гэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 4</span>
+        <p class="q-txt">Тэмээ, адуу, үхэрийг нийтэд нь ямар мал гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn4" id="mn4a"><label class="opt-l" for="mn4a">А) Бог</label>
+          <input class="opt-r ok" type="radio" name="mn4" id="mn4b"><label class="opt-l iscorrect" for="mn4b">Б) Бод</label>
+          <input class="opt-r no" type="radio" name="mn4" id="mn4c"><label class="opt-l" for="mn4c">В) Хошуу</label>
+          <input class="opt-r no" type="radio" name="mn4" id="mn4d"><label class="opt-l" for="mn4d">Г) Таван</label>
+        </div>
+        <div class="exp">💡 Тэмээ, адуу, үхрийг <strong>бод мал</strong> гэнэ. Харин хонь, ямааг "бог мал" гэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 5</span>
+        <p class="q-txt">Монгол бичгээр "чину-а" гэж бичсэн нь юу гэсэн үг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn5" id="mn5a"><label class="opt-l" for="mn5a">А) Нохой</label>
+          <input class="opt-r ok" type="radio" name="mn5" id="mn5b"><label class="opt-l iscorrect" for="mn5b">Б) Чоно</label>
+          <input class="opt-r no" type="radio" name="mn5" id="mn5c"><label class="opt-l" for="mn5c">В) Баавгай</label>
+          <input class="opt-r no" type="radio" name="mn5" id="mn5d"><label class="opt-l" for="mn5d">Г) Үнэг</label>
+        </div>
+        <div class="exp">💡 Монгол бичгээр "чину-а" гэдэг нь <strong>чоно</strong> гэсэн үг. Монголчууд чонод онцгой хүндэтгэл үзүүлдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 6</span>
+        <p class="q-txt">Толгой гэдэг үгийн хүндэтгэсэн нэр юу вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn6" id="mn6a"><label class="opt-l" for="mn6a">А) Царай</label>
+          <input class="opt-r no" type="radio" name="mn6" id="mn6b"><label class="opt-l" for="mn6b">Б) Мэлмий</label>
+          <input class="opt-r ok" type="radio" name="mn6" id="mn6c"><label class="opt-l iscorrect" for="mn6c">В) Тэргүүн</label>
+          <input class="opt-r no" type="radio" name="mn6" id="mn6d"><label class="opt-l" for="mn6d">Г) Бойвог</label>
+        </div>
+        <div class="exp">💡 Толгойн хүндэтгэлийн үг нь <strong>тэргүүн</strong>. Мөн "мэлмий" нь нүдний, "бойвог" нь хөлний хүндэтгэлийн үг юм.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 7</span>
+        <p class="q-txt">Аавын хамаатныг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn7" id="mn7a"><label class="opt-l" for="mn7a">А) Нагац</label>
+          <input class="opt-r ok" type="radio" name="mn7" id="mn7b"><label class="opt-l iscorrect" for="mn7b">Б) Авга</label>
+          <input class="opt-r no" type="radio" name="mn7" id="mn7c"><label class="opt-l" for="mn7c">В) Зээ</label>
+          <input class="opt-r no" type="radio" name="mn7" id="mn7d"><label class="opt-l" for="mn7d">Г) Үеэл</label>
+        </div>
+        <div class="exp">💡 Аавын хамаатныг <strong>авга</strong> гэдэг. Ээжийн хамаатныг нагац гэнэ.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 8</span>
+        <p class="q-txt">Хэдэн нас хүрсэн хүнд иргэний үнэмлэх олгодог вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn8" id="mn8a"><label class="opt-l" for="mn8a">А) 14</label>
+          <input class="opt-r ok" type="radio" name="mn8" id="mn8b"><label class="opt-l iscorrect" for="mn8b">Б) 16</label>
+          <input class="opt-r no" type="radio" name="mn8" id="mn8c"><label class="opt-l" for="mn8c">В) 18</label>
+          <input class="opt-r no" type="radio" name="mn8" id="mn8d"><label class="opt-l" for="mn8d">Г) 21</label>
+        </div>
+        <div class="exp">💡 Монгол улсад <strong>16 нас</strong> хүрсэн хүнд иргэний үнэмлэх олгодог.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 9</span>
+        <p class="q-txt">Монгол улс хэдэн улстай хил залгадаг вэ?</p>
+        <div class="opts">
+          <input class="opt-r ok" type="radio" name="mn9" id="mn9a"><label class="opt-l iscorrect" for="mn9a">А) 2</label>
+          <input class="opt-r no" type="radio" name="mn9" id="mn9b"><label class="opt-l" for="mn9b">Б) 3</label>
+          <input class="opt-r no" type="radio" name="mn9" id="mn9c"><label class="opt-l" for="mn9c">В) 4</label>
+          <input class="opt-r no" type="radio" name="mn9" id="mn9d"><label class="opt-l" for="mn9d">Г) 5</label>
+        </div>
+        <div class="exp">💡 Монгол улс <strong>2 улстай</strong> хил залгадаг: Хойд зүгт Орос, Өмнөд зүгт Хятад улс.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 10</span>
+        <p class="q-txt">Домогт тэмээний эврийг ямар амьтан авч явсан гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn10" id="mn10a"><label class="opt-l" for="mn10a">А) Морь</label>
+          <input class="opt-r ok" type="radio" name="mn10" id="mn10b"><label class="opt-l iscorrect" for="mn10b">Б) Буга</label>
+          <input class="opt-r no" type="radio" name="mn10" id="mn10c"><label class="opt-l" for="mn10c">В) Арслан</label>
+          <input class="opt-r no" type="radio" name="mn10" id="mn10d"><label class="opt-l" for="mn10d">Г) Чоно</label>
+        </div>
+        <div class="exp">💡 Монгол домогт <strong>буга</strong> тэмээний эврийг авч явсан гэдэг. Тиймээс тэмээ эвэргүй, харин буга олон салаа эвэртэй болсон гэж өгүүлдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 11</span>
+        <p class="q-txt">"Бачим" гэж ямар утгыг илэрхийлж байна вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn11" id="mn11a"><label class="opt-l" for="mn11a">А) Удаан</label>
+          <input class="opt-r ok" type="radio" name="mn11" id="mn11b"><label class="opt-l iscorrect" for="mn11b">Б) Яаралтай</label>
+          <input class="opt-r no" type="radio" name="mn11" id="mn11c"><label class="opt-l" for="mn11c">В) Тайван</label>
+          <input class="opt-r no" type="radio" name="mn11" id="mn11d"><label class="opt-l" for="mn11d">Г) Аажуу</label>
+        </div>
+        <div class="exp">💡 <strong>Бачим</strong> гэдэг нь яаралтай гэсэн утгатай Монгол үг юм. "Бачимдах" гэж ч хэрэглэдэг.</div>
+      </div>
+
+      <div class="qcard">
+        <span class="q-badge">АСУУЛТ 12</span>
+        <p class="q-txt">Хурдан морь уядаг хүнийг юу гэдэг вэ?</p>
+        <div class="opts">
+          <input class="opt-r no" type="radio" name="mn12" id="mn12a"><label class="opt-l" for="mn12a">А) Жокей</label>
+          <input class="opt-r ok" type="radio" name="mn12" id="mn12b"><label class="opt-l iscorrect" for="mn12b">Б) Уяач</label>
+          <input class="opt-r no" type="radio" name="mn12" id="mn12c"><label class="opt-l" for="mn12c">В) Малчин</label>
+          <input class="opt-r no" type="radio" name="mn12" id="mn12d"><label class="opt-l" for="mn12d">Г) Тэмцэгч</label>
+        </div>
+        <div class="exp">💡 Хурдан морь уядаг, тэжээдэг хүнийг <strong>уяач</strong> гэдэг. Уяач нь морины сургалт, хоол тэжээлийг хариуцдаг.</div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>✦ Билгүүний Танин Мэдэхүйн Сайт · 2026.04.04 · Чингүүн·Номин-Эрдэнэ хоёроос дүүдээ зориулав ✦</footer>
+
 </body>
 </html>
